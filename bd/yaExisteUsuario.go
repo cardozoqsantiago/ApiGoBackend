@@ -22,8 +22,8 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	err := col.FindOne(ctx, condicion).Decode(&resultado)
 	ID := resultado.ID.String()
 	if err != nil {
-		return resultado, true, ID
+		return resultado, false, ID
 	}
-	return resultado, false, ID
+	return resultado, true, ID
 
 }
